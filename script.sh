@@ -23,9 +23,9 @@ function validate_env(){
 function main(){
   validate_env
 
-  echo -e "\n${blueColor}[+]${blueColor} ${greenColor}Executting tests...${greenColor}\n"
+  echo -e "\n${blueColor}[+]${endColor} ${greenColor}Executting tests...${endColor}\n"
   python runner.py
-  echo -e "\n${blueColor}[+]${blueColor} ${greenColor}Tests executed.${greenColor}\n"
+  echo -e "\n${blueColor}[+]${endColor} ${greenColor}Tests executed.${endColor}\n"
 }
 
 main
