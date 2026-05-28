@@ -15,7 +15,7 @@ if result.returncode != 0:
     create_bug_ticket(
         test_name="pytest suite",
         error_message=result.stdout[-500:],
-        service_name="taskbot"
+        service_name="SCRUM"
     )
 
 sys.exit(result.returncode)

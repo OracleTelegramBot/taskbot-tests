@@ -6,5 +6,5 @@ with open("config.yaml") as f:
 BASE = config["base_url"]
 
 def test_auth_health():
-    r = requests.get(f"{BASE}/api/v1/auth/health")
+    r = requests.get(f"{BASE}/api/v1/auth/healt")
     assert r.status_code == 200
