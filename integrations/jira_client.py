@@ -8,12 +8,12 @@ def create_bug_ticket(test_name, error_message, service_name):
         return
 
     jira = JIRA(
-        server="https://taskbot.atlassian.net",
-        basic_auth=("email@tec.mx", token)
+        server="https://tec-team-4.atlassian.net/",
+        basic_auth=("a00574110@tec.mx", token)
     )
 
     jira.create_issue(
-        project="TASKBOT",
+        project="SCRUM",
         summary=f"[AUTO] Fallo en {test_name} — {service_name}",
         description=f"Error: {error_message}",
         issuetype={"name": "Bug"},
