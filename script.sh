@@ -23,12 +23,6 @@ function validate_env(){
 function main(){
   validate_env
 
-
-  echo -e "\n${blueColor}[+]${endColor} ${greenColor}Fetching and Pulling the content of the remote repository...${endColor}\n"
-  git fetch origin main
-  git pull origin main
-  echo -e "\n${blueColor}[+]${endColor} ${greenColor}Remote content it's already existing locally...${endColor}\n"
-
   echo -e "\n${blueColor}[+]${endColor} ${greenColor}Executting tests...${endColor}\n"
   python runner.py
   echo -e "\n${blueColor}[+]${endColor} ${greenColor}Tests executed.${endColor}\n"

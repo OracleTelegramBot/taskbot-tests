@@ -21,4 +21,6 @@ jobs:
           script: |
             cd ${{ secrets.VPS_PROJECT_PATH }}
             export JIRA_API_TOKEN=${{ secrets.JIRA_API_TOKEN }}
+            git fetch origin main
+            git pull origin main
             ./script.sh
