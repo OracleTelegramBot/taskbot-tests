@@ -9,7 +9,7 @@ yellowColor="\e[0;33m\033[1m"
 purpleColor="\e[0;35m\033[1m"
 turquoiseColor="\e[0;36m\033[1m"
 grayColor="\e[0;37m\033[1m"
-
+ 
 function validate_env(){
   if [[ -d "venv" ]]; then
     rm -rf ./venv
