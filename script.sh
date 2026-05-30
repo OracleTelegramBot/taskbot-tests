@@ -20,12 +20,23 @@ function validate_env(){
   pip install -r requirements.txt
 }
 
+function validate_testing(){
+  exit_code="$1"
+
+  if [[ "$exit_code" -eq 0 ]]; then
+    echo -e "\n${blueColor}[+]${endColor} ${greenColor}Tests executed successful.${endColor}\n"
+  else
+    echo -e "\n${redColor}[!]${endColor} ${yellowColor}Tests executed with an error -> Jira ticket(s) created.${endColor}\n"
+    exit 1
+  fi
+}
+
 function main(){
   validate_env
 
   echo -e "\n${blueColor}[+]${endColor} ${greenColor}Executting tests...${endColor}\n"
   python runner.py
-  echo -e "\n${blueColor}[+]${endColor} ${greenColor}Tests executed.${endColor}\n"
+  validate_testing "$?"
 }
 
 main
