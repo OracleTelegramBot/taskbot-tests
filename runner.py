@@ -3,7 +3,7 @@ import sys
 from integrations.jira_client import create_bug_ticket
 
 result = subprocess.run(
-    ["pytest", "tests/", "-v", "--tb=short", "--junit-xml=report.xml"],
+    ["pytest", "tests/", "-v", "--tb=short", "--junit-xml=report.xml", "--html=report.html", "--self-contained-html"],
     capture_output=True,
     text=True
 )

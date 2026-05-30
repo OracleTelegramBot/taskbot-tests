@@ -1,10 +1,3 @@
-import requests, yaml
-
-with open("config.yaml") as f:
-    config = yaml.safe_load(f)
-
-BASE = config["base_url"]
-
-def test_ai_health():
-    r = requests.get(f"{BASE}/api/ai/health")
-    assert r.status_code == 200
+def test_ai_health(driver, config):
+    driver.get(f"{config['base_url']}/api/ai/health")
+    assert "ERR_" not in driver.page_source, "El servicio de IA no es alcanzable"

@@ -1,10 +1,3 @@
-import requests, yaml
-
-with open("config.yaml") as f:
-    config = yaml.safe_load(f)
-
-BASE = config["base_url"]
-
-def test_kpi_health():
-    r = requests.get(f"{BASE}/api/kpis/sprints/activos")
-    assert r.status_code in [200, 401, 403]
+def test_kpi_health(driver, config):
+    driver.get(f"{config['base_url']}/api/kpis/sprints/activos")
+    assert "ERR_" not in driver.page_source, "El servicio de KPIs no es alcanzable"

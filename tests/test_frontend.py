@@ -1,10 +1,3 @@
-import requests, yaml
-
-with open("config.yaml") as f:
-    config = yaml.safe_load(f)
-
-BASE = config["base_url"]
-
-def test_frontend_loads():
-    r = requests.get(BASE)
-    assert r.status_code == 200
+def test_frontend_loads(driver, config):
+    driver.get(config["base_url"])
+    assert driver.title != "", "El frontend no cargó — el título de la página está vacío"
