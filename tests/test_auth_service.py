@@ -1,3 +1,10 @@
-def test_auth_health(driver, config):
-    driver.get(f"{config['base_url']}/api/v1/auth/health")
-    assert "ERR_" not in driver.page_source, "El servicio de autenticación no es alcanzable"
+import requests, yaml
+
+with open("config.yaml") as f:
+    config = yaml.safe_load(f)
+
+BASE = config["base_url"]
+
+def test_auth_health():
+    r = requests.get(f"{BASE}/api/v1/auth/healthh")
+    assert r.status_code == 200

@@ -13,19 +13,19 @@ grayColor="\e[0;37m\033[1m"
 function validate_env(){
   if [[ -d "venv" ]]; then
     rm -rf ./venv
-  else
-    python3 -m venv venv
-    source ./venv/bin/activate
-    pip install -r requirements.txt
   fi
+  
+  python3 -m venv venv
+  source ./venv/bin/activate
+  pip install -r requirements.txt
 }
 
 function main(){
   validate_env
 
-  echo -e "\n${blueColor}[+]${blueColor} ${greenColor}Executting tests...${greenColor}\n"
+  echo -e "\n${blueColor}[+]${endColor} ${greenColor}Executting tests...${endColor}\n"
   python runner.py
-  echo -e "\n${blueColor}[+]${blueColor} ${greenColor}Tests executed.${greenColor}\n"
+  echo -e "\n${blueColor}[+]${endColor} ${greenColor}Tests executed.${endColor}\n"
 }
 
 main

@@ -1,4 +1,4 @@
-name: Deploy to VPS
+name: Automated testing
 
 on:
   push:
@@ -6,12 +6,12 @@ on:
       - main
 
 jobs:
-  deploy:
+  testing:
     runs-on: ubuntu-latest
-    environment: production
+    environment: secrets
 
     steps:
-      - name: Deploy via SSH
+      - name: Automated Testing Via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -20,6 +20,7 @@ jobs:
           script_stop: true
           script: |
             cd ${{ secrets.VPS_PROJECT_PATH }}
+            export JIRA_API_TOKEN=${{ secrets.JIRA_API_TOKEN }}
             git fetch origin main
             git pull origin main
             ./script.sh
