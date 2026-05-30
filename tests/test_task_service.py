@@ -1,10 +1,3 @@
-import requests, yaml
-
-with open("config.yaml") as f:
-    config = yaml.safe_load(f)
-
-BASE = config["base_url"]
-
-def test_task_service_reachable():
-    r = requests.get(f"{BASE}/api/tasks/sprint/1")
-    assert r.status_code in [200, 401, 403, 500]
+def test_task_service_reachable(driver, config):
+    driver.get(f"{config['base_url']}/api/tasks/sprint/1")
+    assert "ERR_" not in driver.page_source, "El servicio de tareas no es alcanzable"
